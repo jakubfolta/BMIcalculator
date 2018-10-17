@@ -29,8 +29,15 @@ def YorN():
     return answer
 
 answer = YorN()
-if answer == 'yes' or answer == 'y': #if 'yes'.startswith(answer):
-    print('gdfgd')   
+if answer == 'yes' or answer == 'y': #if 'yes'.startswith(answer): <= another option
+    while True:
+        try:
+            weight = int(input('What\'s your weight? '))
+            break
+        except ValueError:
+            print('Please enter a number.')
+        try:
+            
 elif answer.startswith('n'):
     print ('Have a nice day!')
     time.sleep(2)
