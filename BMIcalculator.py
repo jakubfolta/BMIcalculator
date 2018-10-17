@@ -1,44 +1,49 @@
+import time
+
 while True:
     try:
-        name = str(input('Hello, what is your name? '))
-        break
-    except ValueError:
-        print ('Please use letters only.')
-
-print()
-print ('Hi ' +name+ ', nice to meet you!\nDo you want to know your BMI?')
-
-print()
-answer = ''
-while answer != 'Yes' and answer != 'yes' and answer != 'No' and answer != 'no':
-    answer = input('Please type: "Yes" or "No"? ' )
-
-
-if answer == 'Yes' or 'yes':
-    while True:
-        try:
-            weight = int(input('What is your weight? '))
-            while True:
-                weight = int(input('Please enter a number in range 0 to 250. '))
-                if 0 <= weight <= 250:
-                    break
-                else:
-                    continue
+        name = input('Hello, what is your name? ')
+        if name.isalpha() and len(name) > 2:
             break
-        except ValueError:
-            print ('Please enter a number in range 0 to 250.')
+        else:
+            raise TypeError
+    except TypeError:
+        print ('Please enter more than 2 characters and use letters only.')
+
+print()
+print ('Hi ', name,', nice to meet you!')
+time.sleep(1)
+print()
+print('Do you want to know your BMI?')
+time.sleep(1)
+print()
+
+def YorN():
+    answer = ''
+    while answer != 'yes' and answer != 'y' and answer != 'no' and answer != 'n':
+        print ('Please type: "yes" or "no" ')
+        answer = input()
+        continue
+    else:
+        print('Alright!')
+    return answer
+
+answer = YorN()
+if answer == 'yes' or answer == 'y': #if 'yes'.startswith(answer):
+    print('gdfgd')   
+elif answer.startswith('n'):
+    print ('Have a nice day!')
+    time.sleep(2)
+    exit()
 
 
 
-fdsfd
+print('ok')
 
 
-'''elif answer == 'No' or 'no':
-    print ('Ok, no problem. Have a nice day!')
-else:
-    print ('Simply write "Yes" or "No"')
 
-weight = input()
 
-height = input('And what is your height? ')
-'''
+
+
+
+
