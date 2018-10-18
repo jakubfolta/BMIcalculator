@@ -1,6 +1,6 @@
 import time
 
-while True:
+while True: #ask user for name and check if properly entered
     try:
         name = input('Hello, what is your name? ')
         if name.isalpha() and len(name) > 2:
@@ -18,7 +18,7 @@ print('Do you want to know your BMI?')
 time.sleep(1)
 print()
 
-def YorN():
+def YorN(): #ask for answer 
     answer = ''
     while answer != 'yes' and answer != 'y' and answer != 'no' and answer != 'n':
         print ('Please type: "yes" or "no" ')
@@ -28,11 +28,11 @@ def YorN():
         print('Alright!')
     return answer
 
-answer = YorN()
+answer = YorN() #check an answer and act accordingly
 if answer == 'yes' or answer == 'y': #if 'yes'.startswith(answer): <= another option
     while True:
         try:
-            weight = float(input('What\'s your weight in range 0 - 250kg? >>> '))
+            weight = float(input('What\'s your weight in range 0 - 250kg? >>> ')) #check if weight is a number in range 0 -250
         except ValueError:
             print('Please enter a number.')
         else:
@@ -47,16 +47,16 @@ elif answer.startswith('n'):
 
 while True:
     try:
-        height = float(input('What\'s your height in centimeters? >>>'))
+        height = float(input('What\'s your height in centimeters? >>>')) #check if height is a number
         break
     except ValueError:
         print ('Use numbers only!')
-height = height / 100
+height = height / 100 #convert number to height in meters with 2 decimal places
 print ('Ok, I\'ve got all data needed.')
 time.sleep(1)
 print ('Now to count your BMI (Body mass index) I will divide your weight which is:', str(weight) + 'kg by your height:', str(height) + 'm.')
 print()
-wh = round((weight / height),2)
+wh = round((weight / height),2) #calculate BMI
 time.sleep(2)
 print ('It gives us', str(wh) +'.')
 print()
@@ -70,7 +70,7 @@ bmi = round(bmi,2)
 time.sleep(1)
 print ('It is', str(bmi)+ '!!!')
 
-time.sleep(2)
+time.sleep(2) #depend on BMI give an opinion
 if 18.5 >= bmi:
     print ('It means that you are underweight. Try to eat a bit more and get some weight ;)')
 elif 18.5 < bmi <= 24.9:
@@ -84,5 +84,10 @@ elif 30 <= bmi:
     time.sleep(1)
     print('You have to lose weight man!!! Really, think about it.')
 
+time.sleep(2)
+print()
+print('Take care and thanks for using this BMI calculator!')
+time.sleep(3)
+exit()
 
 
